@@ -95,7 +95,7 @@ class ToggleAction(Action):
 
 class DimmableLight(Thing):
     def __init__(self, name, pwm):
-        Ting.__init__(self, name, ['Light', 'OnOffSwitch', 'MultiLevelSwitch'], 'a dimmable light')
+        Thing.__init__(self, name, ['Light', 'OnOffSwitch', 'MultiLevelSwitch'], 'a dimmable light')
         self._light = machine.PWM(machine.Pin(pwm))
         self.on = self.is_on()
         self.brightness = self.get_brightness()
