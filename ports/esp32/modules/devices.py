@@ -136,7 +136,7 @@ class DimmableLight(Thing):
         )
 
     def is_on(self):
-        return self._light.value()
+        return bool(self._light.duty())
 
     def get_brightness(self):
         return round((self._light.duty()/1023)*100)
