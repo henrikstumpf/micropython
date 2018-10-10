@@ -1,4 +1,5 @@
 import dht
+import ds18x20
 import machine
 import onewire
 import time
