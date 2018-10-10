@@ -41,6 +41,7 @@ class DHT22(Thing):
         Thing.__init__(self, name, "MultiLevelSensor", "dht22 temperature and humidity sensor")
         self._rom = dht.DHT22(machine.Pin(pin))
         self._temp = self._read_temp()
+        time.sleep_ms(500) #to prevent ETIMEDOUT error
         self._hum = self._read_hum()
         self.add_property(
             Property(
@@ -61,7 +62,7 @@ class DHT22(Thing):
                 Value(self._hum, self.update_hum),
                 metadata={
                     '@type': 'LevelProperty',
-                    'label': 'Temperature',
+                    'label': 'Humidity',
                     'type': 'number',
                 }
             )
